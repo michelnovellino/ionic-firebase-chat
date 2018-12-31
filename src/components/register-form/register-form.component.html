@@ -1,0 +1,21 @@
+<ion-card margin-top>
+  <ion-card-title  margin-top>
+    <h2 text-center><strong>Crea tu cuenta</strong></h2>
+  </ion-card-title>
+  <ion-card-content>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)]="account.email" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Clave</ion-label>
+      <ion-input  [(ngModel)]="account.password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-row  margin-bottom float-right>
+      <button color="secondary" clear ion-button (click)="navigateToPage('LoginPage')" >Tengo una cuenta</button>
+      <button color="secondary" (click)="Register()" ion-button >crear</button>
+    </ion-row>
+
+  </ion-card-content>
+</ion-card>
