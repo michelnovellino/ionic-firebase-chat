@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage} from 'ionic-angular';
+import { IonicPage, NavController, ToastController} from 'ionic-angular';
+import { LoginResponse } from '../../models/login/login-response.model';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,14 +10,27 @@ import { IonicPage} from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor( ) {
+  constructor(private navCtrl: NavController,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
  
   }
 
-  Login(){
+  Login(event:LoginResponse){
+    console.log(event)
+    if(!event.error){
+      this.toastCtrl.create({
+        message:'Inicio de sesion exitoso, lo redirigiremos en instantes',
+        duration: 3000
+       }).present()
+      this.navCtrl.setRoot('ProfilePage')
+    }else{
+      this.toastCtrl.create({
+        message: event.error.message,
+        duration: 3000
+       }).present()
+    }
   }
 
 
