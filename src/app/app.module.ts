@@ -13,9 +13,11 @@ import {ComponentsModule} from '../components/components.module';
 //firebase
 import {  AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from 'angularfire2/auth'
+import {AngularFireDatabaseModule} from 'angularfire2/database'
 import {FIREBASE_CONFIG} from'./app.firebase.config'
 
 import { AuthProvider } from '../providers/auth/auth';
+import { DataProvider } from '../providers/data/data';
 
 
  @NgModule({
@@ -29,7 +31,9 @@ import { AuthProvider } from '../providers/auth/auth';
     IonicModule.forRoot(MyApp),
     ComponentsModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +46,9 @@ import { AuthProvider } from '../providers/auth/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    DataProvider,
+    AngularFireDatabaseModule
   ]
 })
 export class AppModule {}

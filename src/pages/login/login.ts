@@ -24,7 +24,7 @@ export class LoginPage {
         message:'Inicio de sesion exitoso, lo redirigiremos en instantes',
         duration: 3000
        }).present()
-      this.navCtrl.setRoot('ProfilePage')
+      this.navCtrl.setRoot('EditProfilePage')
     }else{
       this.toastCtrl.create({
         message: event.error.message,

@@ -20,6 +20,13 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
+  getAuthenticatedUser(){
+   let a = this.OfAuth.authState; 
+    console.log(a)
+    return a; 
+
+  }
+
   async signInWithEmailAndPassword(account:Account){
     try{  
       return  <LoginResponse>{
